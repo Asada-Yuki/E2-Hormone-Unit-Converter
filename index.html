@@ -190,13 +190,13 @@
 
             if (fromUnit === 'pg/mL') {
                 convertedValues['pg/mL'] = inputValue;
-                convertedValues['pg/dL'] = inputValue * 10;
+                convertedValues['pg/dL'] = inputValue * 100;
                 convertedValues['ng/L'] = inputValue * 3.67104;
                 convertedValues['ng/dL'] = inputValue / 10;
                 convertedValues['pmol/L'] = inputValue * 3.67104;
                 convertedValues['ng/mL'] = inputValue / 1000;
             } else if (fromUnit === 'pg/dL') {
-                convertedValues['pg/mL'] = inputValue / 10;
+                convertedValues['pg/mL'] = inputValue / 100;
                 convertedValues['pg/dL'] = inputValue;
                 convertedValues['ng/L'] = inputValue * 0.367104;
                 convertedValues['ng/dL'] = inputValue * 0.00367104;
@@ -206,13 +206,13 @@
                 convertedValues['pg/mL'] = inputValue / 3.67104;
                 convertedValues['pg/dL'] = inputValue / 0.0367104;
                 convertedValues['ng/L'] = inputValue;
-                convertedValues['ng/dL'] = inputValue / 100;
+                convertedValues['ng/dL'] = inputValue / 10;
                 convertedValues['pmol/L'] = inputValue;
                 convertedValues['ng/mL'] = inputValue / 1000;
             } else if (fromUnit === 'ng/dL') {
                 convertedValues['pg/mL'] = inputValue * 10;
                 convertedValues['pg/dL'] = inputValue * 100;
-                convertedValues['ng/L'] = inputValue * 100;
+                convertedValues['ng/L'] = inputValue * 10;
                 convertedValues['ng/dL'] = inputValue;
                 convertedValues['pmol/L'] = inputValue * 100;
                 convertedValues['ng/mL'] = inputValue / 100;
