@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hormone Unit Converter</title>
+    <title>E2 Hormone Unit Converter</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -58,7 +58,13 @@
     </style>
 </head>
 <body>
-    <h1>Hormone Unit Converter</h1>
+    <h1>E2 Hormone Unit Converter</h1>
+    
+    <h4>数字为零为转换无意义</h4>
+    <h4>ng、pg、pmol、nmol互相转换。IU、mIU属性暂空，涉及国际单位（IU）换算因子不予互相转换</h4>
+    <h4>参考值；雌二醇（E2）的摩尔质量为约272.3836022 g/mol</h4>
+
+
 
     <div class="converter">
         <div class="input-group">
@@ -69,103 +75,17 @@
         <div class="input-group">
             <label for="e2FromUnit">From unit:</label>
             <select id="e2FromUnit">
-                <option value="pg/mL">pg/mL</option>
-                <option value="pg/dL">pg/dL</option>
                 <option value="ng/L">ng/L</option>
                 <option value="ng/dL">ng/dL</option>
-                <option value="pmol/L">pmol/L</option>
                 <option value="ng/mL">ng/mL</option>
+                <option value="pg/dL">pg/dL</option>
+                <option value="pg/mL">pg/mL</option>
+                <option value="pmol/L">pmol/L</option>
+                <option value="nmol/L">nmol/L</option>
             </select>
         </div>
         <div class="output" id="e2Output"></div>
 
-        <div class="input-group">
-            <label for="p4Value">Progesterone (P4) value:</label>
-            <input type="text" id="p4Value">
-            <button onclick="convertHormone('p4')">Convert</button>
-        </div>
-        <div class="input-group">
-            <label for="p4FromUnit">From unit:</label>
-            <select id="p4FromUnit">
-                <option value="ng/mL">ng/mL</option>
-                <option value="ng/L">ng/L</option>
-                <option value="ng/dL">ng/dL</option>
-                <option value="pmol/L">pmol/L</option>
-            </select>
-        </div>
-        <div class="output" id="p4Output"></div>
-
-        <div class="input-group">
-            <label for="lhValue">Luteinizing Hormone (LH) value:</label>
-            <input type="text" id="lhValue">
-            <button onclick="convertHormone('lh')">Convert</button>
-        </div>
-        <div class="input-group">
-            <label for="lhFromUnit">From unit:</label>
-            <select id="lhFromUnit">
-                <option value="pg/mL">pg/mL</option>
-                <option value="pg/dL">pg/dL</option>
-                <option value="ng/L">ng/L</option>
-                <option value="ng/dL">ng/dL</option>
-                <option value="pmol/L">pmol/L</option>
-                <option value="ng/mL">ng/mL</option>
-            </select>
-        </div>
-        <div class="output" id="lhOutput"></div>
-
-        <div class="input-group">
-            <label for="fshValue">Follicle Stimulating Hormone (FSH) value:</label>
-            <input type="text" id="fshValue">
-            <button onclick="convertHormone('fsh')">Convert</button>
-        </div>
-        <div class="input-group">
-            <label for="fshFromUnit">From unit:</label>
-            <select id="fshFromUnit">
-                <option value="pg/mL">pg/mL</option>
-                <option value="pg/dL">pg/dL</option>
-                <option value="ng/L">ng/L</option>
-                <option value="ng/dL">ng/dL</option>
-                <option value="pmol/L">pmol/L</option>
-                <option value="ng/mL">ng/mL</option>
-            </select>
-        </div>
-        <div class="output" id="fshOutput"></div>
-
-        <div class="input-group">
-            <label for="prlValue">Prolactin (PRL) value:</label>
-            <input type="text" id="prlValue">
-            <button onclick="convertHormone('prl')">Convert</button>
-        </div>
-        <div class="input-group">
-            <label for="prlFromUnit">From unit:</label>
-            <select id="prlFromUnit">
-                <option value="pg/mL">pg/mL</option>
-                <option value="pg/dL">pg/dL</option>
-                <option value="ng/L">ng/L</option>
-                <option value="ng/dL">ng/dL</option>
-                <option value="pmol/L">pmol/L</option>
-                <option value="ng/mL">ng/mL</option>
-            </select>
-        </div>
-        <div class="output" id="prlOutput"></div>
-
-        <div class="input-group">
-            <label for="tValue">Testosterone (T) value:</label>
-            <input type="text" id="tValue">
-            <button onclick="convertHormone('t')">Convert</button>
-        </div>
-        <div class="input-group">
-            <label for="tFromUnit">From unit:</label>
-            <select id="tFromUnit">
-                <option value="ng/mL">ng/mL</option>
-                <option value="pg/mL">pg/mL</option>
-                <option value="pg/dL">pg/dL</option>
-                <option value="nmol/L">nmol/L</option>
-                <option value="ng/dL">ng/dL</option>
-            </select>
-        </div>
-        <div class="output" id="tOutput"></div>
-    </div>
 
     <div id="reference">
         <h3>Standard Reference Ranges for Hormones in Females:</h3>
@@ -178,6 +98,34 @@
             <li>Testosterone (T) - ng/dL: 8 - 60</li>
         </ul>
     </div>
+    <h2>正常值范围</h2>
+    <p>在周期的不同阶段，女性体内的雌二醇水平可能会不同。以下是一般的正常参考值范围，但请注意这些值可能因不同的化验室及实验方法而有所不同。</p>
+    <table>
+      <thead>
+        <tr>
+          <th>周期阶段</th>
+          <th>雌二醇浓度范围</th>
+          <th>单位</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>期前</td>
+          <td>30-400 pg/mL</td>
+          <td>pg/mL</td>
+        </tr>
+        <tr>
+          <td>排卵期</td>
+          <td>120-500 pg/mL</td>
+          <td>pg/mL</td>
+        </tr>
+        <tr>
+          <td>期间</td>
+          <td>40-350 pg/mL</td>
+          <td>pg/mL</td>
+        </tr>
+      </tbody>
+    </table>
 
     <script>
         function convertHormone(hormone) {
@@ -188,53 +136,90 @@
             var convertedValues = {};
 
             if (fromUnit === 'pg/mL') {
-                convertedValues['pg/mL'] = inputValue;
                 convertedValues['pg/dL'] = inputValue * 100;
+                convertedValues['pg/mL'] = inputValue;
                 convertedValues['ng/L'] = inputValue * 1;
                 convertedValues['ng/dL'] = inputValue / 10;
-                convertedValues['pmol/L'] = inputValue * 3.67104;
                 convertedValues['ng/mL'] = inputValue / 1000;
+                convertedValues['pmol/L'] = inputValue * 3.6968474;
+                convertedValues['nmol/L'] = inputValue * 0.0036968474;
+                convertedValues['IU/L'] = inputValue * 0;
+                convertedValues['mIU/L'] = inputValue * 0;
+                convertedValues['mIU/mL'] = inputValue * 0;
             } else if (fromUnit === 'pg/dL') {
-                convertedValues['pg/mL'] = inputValue / 100;
                 convertedValues['pg/dL'] = inputValue;
-                convertedValues['ng/L'] = inputValue * 0.367104;
-                convertedValues['ng/dL'] = inputValue * 0.00367104;
-                convertedValues['pmol/L'] = inputValue * 0.367104;
+                convertedValues['pg/mL'] = inputValue / 100;
+                convertedValues['ng/L'] = inputValue / 100;
+                convertedValues['ng/dL'] = inputValue / 1000;
                 convertedValues['ng/mL'] = inputValue / 100000;
+                convertedValues['pmol/L'] = inputValue * 0.0367104;
+                convertedValues['nmol/L'] = inputValue * 0.000036968474;
+                convertedValues['IU/L'] = inputValue * 0;
+                convertedValues['mIU/L'] = inputValue * 0;
+                convertedValues['mIU/mL'] = inputValue * 0;
             } else if (fromUnit === 'ng/L') {
-                convertedValues['pg/mL'] = inputValue / 1;
-                convertedValues['pg/dL'] = inputValue / 0.0367104;
+                convertedValues['pg/dL'] = inputValue * 100;
+                convertedValues['pg/mL'] = inputValue * 1;
                 convertedValues['ng/L'] = inputValue;
                 convertedValues['ng/dL'] = inputValue / 10;
-                convertedValues['pmol/L'] = inputValue;
                 convertedValues['ng/mL'] = inputValue / 1000;
+                convertedValues['pmol/L'] = inputValue * 3.6720456;
+                convertedValues['nmol/L'] = inputValue * 0.003696;
+                convertedValues['IU/L'] = inputValue * 0;
+                convertedValues['mIU/L'] = inputValue * 0;
+                convertedValues['mIU/mL'] = inputValue * 0;
             } else if (fromUnit === 'ng/dL') {
+                convertedValues['pg/dL'] = inputValue * 1000;
                 convertedValues['pg/mL'] = inputValue * 10;
-                convertedValues['pg/dL'] = inputValue * 100;
-                convertedValues['ng/L'] = inputValue * 10;
+                convertedValues['ng/L'] = inputValue * 10000;
                 convertedValues['ng/dL'] = inputValue;
-                convertedValues['pmol/L'] = inputValue * 100;
                 convertedValues['ng/mL'] = inputValue / 100;
+                convertedValues['pmol/L'] = inputValue * 36.720456;
+                convertedValues['nmol/L'] = inputValue * 0.0036720456;
+                convertedValues['IU/L'] = inputValue * 0;
+                convertedValues['mIU/L'] = inputValue * 0;
+                convertedValues['mIU/mL'] = inputValue * 0;
             } else if (fromUnit === 'pmol/L') {
-                convertedValues['pg/mL'] = inputValue / 3.67104;
-                convertedValues['pg/dL'] = inputValue * 10 / 3.67104;
-                convertedValues['ng/L'] = inputValue;
-                convertedValues['ng/dL'] = inputValue / 100;
+                convertedValues['pg/dL'] = inputValue * 27.23836022;
+                convertedValues['pg/mL'] = inputValue * 0.2723836022;
+                convertedValues['ng/L'] = inputValue * 0.2723836022;
+                convertedValues['ng/dL'] = inputValue / 10 * 0.2723836022;
+                convertedValues['ng/mL'] = inputValue / 1000 * 0.2723836022;
                 convertedValues['pmol/L'] = inputValue;
-                convertedValues['ng/mL'] = inputValue / 1000;
+                convertedValues['nmol/L'] = inputValue / 1000;
+                convertedValues['IU/L'] = inputValue * 0;
+                convertedValues['mIU/L'] = inputValue * 0;
+                convertedValues['mIU/mL'] = inputValue * 0;
             } else if (fromUnit === 'ng/mL') {
-                convertedValues['pg/mL'] = inputValue * 1000;
                 convertedValues['pg/dL'] = inputValue * 100000;
+                convertedValues['pg/mL'] = inputValue * 1000;
                 convertedValues['ng/L'] = inputValue * 1000;
                 convertedValues['ng/dL'] = inputValue * 100;
-                convertedValues['pmol/L'] = inputValue * 1000;
                 convertedValues['ng/mL'] = inputValue;
+                convertedValues['pmol/L'] = inputValue * 3672.04561547827351;
+                convertedValues['nmol/L'] = inputValue * 3.67204561547827351;
+                convertedValues['IU/L'] = inputValue * 0;
+                convertedValues['mIU/L'] = inputValue * 0;
+                convertedValues['mIU/mL'] = inputValue * 0;
+            } else if (fromUnit === 'nmol/L') {
+                convertedValues['pg/dL'] = inputValue * 27238.36022;
+                convertedValues['pg/mL'] = inputValue *272.3836022;
+                convertedValues['ng/L'] = inputValue *272.3836022;
+                convertedValues['ng/dL'] = inputValue *27.23836022;
+                convertedValues['ng/mL'] = inputValue *0.2723836022;
+                convertedValues['pmol/L'] = inputValue ;
+                convertedValues['nmol/L'] = inputValue * 1000;
+                convertedValues['IU/L'] = inputValue * 0;
+                convertedValues['mIU/L'] = inputValue * 0;
+                convertedValues['mIU/mL'] = inputValue * 0;
             }
 
             var outputHTML = '';
             for (var unit in convertedValues) {
-                outputHTML += '<p>' + unit + ': ' + convertedValues[unit].toFixed(5) + '</p>';
+                if (convertedValues.hasOwnProperty(unit)) {
+                outputHTML += '<p>' + unit + ': ' + convertedValues[unit].toFixed(8) + '</p>';
             }
+        }
 
             output.innerHTML = outputHTML;
         }
