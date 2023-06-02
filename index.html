@@ -55,6 +55,18 @@
         #reference li {
             margin-bottom: 5px;
         }
+        table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
     </style>
 </head>
 <body>
@@ -126,7 +138,57 @@
         </tr>
       </tbody>
     </table>
-
+    <h2>Trans Female雌二醇建议值表格</h2>
+    <table>
+      <tr>
+        <th>测量时间点</th>
+        <th>雌二醇水平</th>
+      </tr>
+      <tr>
+        <td>初始治疗前</td>
+        <td>参考自然女性的水平</td>
+      </tr>
+      <tr>
+        <td>初始治疗后的数月</td>
+        <td>100-200 pg/mL</td>
+      </tr>
+      <tr>
+        <td>稳定治疗后</td>
+        <td>安全范围内的最佳维持水平</td>
+      </tr>
+      <tr>
+        <td>定期监测</td>
+        <td>根据个体情况和需要进行调整</td>
+      </tr>
+    </table>
+    <br>
+    <h2>Trans Female雌二醇检测时间表格</h2>
+    <table>
+      <tr>
+        <th>治疗阶段</th>
+        <th>监测时间</th>
+      </tr>
+      <tr>
+        <td>初始治疗前</td>
+        <td>血液测试，基线评估</td>
+      </tr>
+      <tr>
+        <td>初始治疗后的数月</td>
+        <td>3个月一次，监测激素水平的变化</td>
+      </tr>
+      <tr>
+        <td>稳定治疗后</td>
+        <td>6个月一次，确保激素水平稳定</td>
+      </tr>
+      <tr>
+        <td>治疗期间的调整</td>
+        <td>根据需要进行额外的监测，如剂量调整或症状管理</td>
+      </tr>
+      <tr>
+        <td>年度监测</td>
+        <td>每年进行一次全面评估，包括激素水平和健康状况</td>
+      </tr>
+    </table>
     <script>
         function convertHormone(hormone) {
             var inputValue = parseFloat(document.getElementById(hormone + 'Value').value);
